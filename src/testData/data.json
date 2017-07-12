@@ -1,0 +1,14 @@
+{
+  "firstName": "Vijen",
+  "lastName": "Malav",
+  "companyDetails": {
+      "Wipro": {
+        "startDate": "14/02/2011",
+        "designation": "Software Engineer"
+      },
+      "Deloitte": {
+        "startDate": "20/01/2014",
+        "designation": "System Engineer"
+      }
+    }
+}

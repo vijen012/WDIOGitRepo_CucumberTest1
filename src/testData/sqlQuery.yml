@@ -1,0 +1,2 @@
+getEmpRecordByEmpNo: 'Select * from COMPANY.EMP Where EMPNO=7839'
+getEmpRecordByDeptNo: 'Select * from COMPANY.EMP Where DEPTNO=10'

@@ -1,0 +1,28 @@
+{
+  "name": "CucumberTestApp1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "async": "^2.5.0",
+    "asyncawait": "^1.0.6",
+    "chai": "^4.0.2",
+    "chai-webdriverio": "^0.3.0",
+    "cucumber": "^2.3.1",
+    "gulp": "^3.9.1",
+    "gulp-webdriver": "^2.0.3",
+    "js-yaml": "^3.8.4",
+    "oracledb": "^1.13.1",
+    "wdio-cucumber-framework": "^0.3.1",
+    "wdio-selenium-standalone-service": "0.0.8",
+    "wdio-spec-reporter": "^0.1.0",
+    "webdriverio": "^4.8.0",
+    "yargs": "^8.0.1"
+  }
+}

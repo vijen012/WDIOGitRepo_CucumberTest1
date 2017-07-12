@@ -1,0 +1,63 @@
+{
+  "IntentId":"123123",
+  "Type":"ACCOUNT_INFORMATION",
+  "Scope":"AISP",
+  "PermissionsExpirationDateTime":"2017-12-18@07:53:34.740+0000",
+  "Party":{
+    "PartyIdentifier":"00836832496",
+    "PersonalTitle":"Mr",
+    "Name":"Name of Party",
+    "TypeCode":"INDIVIDUAL",
+    "InternalUserIdentifier":"1233567",
+    "ChannelType":"RC",
+    "BrandName":"LYDS"
+  },
+  "Provider":{
+    "ProviderIdentifier":"11117",
+    "ProviderName":"We Pay2",
+    "ProviderRole":"AISP",
+    "ProviderOAuthState":"OAuthState",
+    "ProviderAppName":"NameofProviderApp",
+    "ProviderGrantedPermissions":{
+      "Permissions":[
+        "READACCOUNTS",
+        "READACCOUNTSSENSITIVE",
+        "READBALANCES"
+      ],
+      "TransactionFromDateTime":"2017-05-01@17:54:57.968+0000",
+      "TransactionToDateTime":"2017-05-01@17:54:57.968+0000"
+    }
+  },
+  "EntitledAgreementResources":[
+    {
+      "Account":{
+        "AccountName":"Name of account",
+        "SchemeName":"BBAN",
+        "Identification":"10120569"
+      },
+      "Servicer":{
+        "SchemeName":"UKSortCode",
+        "Identification":"800621"
+      },
+      "Metadata":{
+        "ExternalPartyId":"800836832496",
+        "AccountCurrency":"GBP"
+      }
+    },
+    {
+      "Account":{
+        "AccountName":"Name of account",
+        "SchemeName":"BBAN",
+        "Identification":"10320569"
+      },
+      "Servicer":{
+        "SchemeName":"UKSortCode",
+        "Identification":"800521"
+      },
+      "Metadata":{
+        "ExternalPartyId":"800836832496",
+        "AccountCurrency":"GBP"
+      }
+    }
+  ]
+}

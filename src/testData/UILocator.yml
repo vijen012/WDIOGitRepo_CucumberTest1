@@ -1,0 +1,4 @@
+WDIOHome APILink: 'a[href="/api.html"]'
+WDIOAPI SearchTextBox: 'input[name="search"]'
+WDIOAPI WaitForExistLink: 'a[href="/api/utility/waitForExist.html"]'
+WDIOAPI WaitForExistElement: 'h1#waitForExist'
