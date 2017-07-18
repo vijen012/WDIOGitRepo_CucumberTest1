@@ -13,7 +13,7 @@ module.exports = {
                      ymlData = yml.safeLoad(fs.readFileSync(apiConf.config.testDataDirPath + fileName + ".yml", 'utf8'))
                 }
                 catch (e) {
-                    console.log(e)
+                    // console.log(e)
                 }
             },
 
