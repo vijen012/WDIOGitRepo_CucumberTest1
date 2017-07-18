@@ -5,7 +5,7 @@ var oracleDb = require('oracledb')
 //to get the row data in column-value pair
 oracleDb.outFormat = oracleDb.OBJECT
 var await = require('asyncawait/await')
-var con, dbResult
+var con
 module.exports={
     createOracleDbConnection: createOracleDbConnection,
     getOracleConnection: getOracleConnection,
@@ -21,10 +21,12 @@ function createOracleDbConnection(dbConfig) {
                     connectString: dbConfig.connectString
                 }, function (err, connection) {
                     if(err) {
-                        console.error("Connection not established with oracle database:- ", err.message)
+                        //console.error("Connection not established with oracle database:- ", err.message)
+                        reject(err.message)
                     }else{
-                        console.log("Connected with oracle database")
+                        //console.log("Connected with oracle database")
                         con = connection
+                        resolve("Connected With Oracle Db")
                     }
                     done()
                 }
@@ -33,14 +35,14 @@ function createOracleDbConnection(dbConfig) {
     })
 }
 
-function doRelease()
-{
-    con.close(function(err) {
-                if (err) {
-                    console.error(err.message);
-                }
-            });
-}
+// function doRelease()
+// {
+//     con.close(function(err) {
+//                 if (err) {
+//                     console.error(err.message);
+//                 }
+//             });
+// }
 
 function getOracleConnection() {
     return con
@@ -50,7 +52,7 @@ function getResultSet(sqlQuery){
     return new Promise(function(resolve, reject){
         con.execute(sqlQuery, function (err, result) {
             if(err){
-                console.error(err.message)
+                // console.error(err.message)
                 reject(err)
             }else{
                 //console.log(result)

@@ -12,7 +12,7 @@ module.exports = {
             jsonData = JSON.parse(fs.readFileSync(apiConf.config.testDataDirPath + fileName + '.json', 'utf8'))
         }
         catch(e) {
-            console.log(e)
+            //console.log(e)
         }
         return jsonData
     },
