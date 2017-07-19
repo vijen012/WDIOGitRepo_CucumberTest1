@@ -1,6 +1,4 @@
-/**
- * Created by vmalav on 6/18/2017.
- */
+/*global browser*/
 
 module.exports = {
 
