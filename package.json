@@ -23,6 +23,8 @@
     "js-yaml": "^3.8.4",
     "oracledb": "^1.13.1",
     "pre-commit": "^1.2.2",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
     "wdio-cucumber-framework": "^0.3.1",
     "wdio-selenium-standalone-service": "0.0.8",
     "wdio-spec-reporter": "^0.1.0",

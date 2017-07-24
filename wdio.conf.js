@@ -1,6 +1,7 @@
 var ff;
 var featureFilePath;
 var argv = require('yargs').argv;
+let apiLib = require('./src/utility/apiUtility').apiLib
 
 if(argv.ff != undefined){
     featureFilePath = `./src/features/API/**/${argv.ff}.feature`;
@@ -14,6 +15,7 @@ exports.config = {
     ymlUtility: require('./src/utility/yamlUtility'),
     jsonUtility: require('./src/utility/jsonUtility'),
     oracleDbUtility: require('./src/utility/oracleUtility'),
+    apiUtility: new apiLib('http', 'httpbin.org'),
 
     oracleDbConfig:{
         user: 'system',
@@ -174,7 +176,7 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
     onPrepare: function (config, capabilities) {
-        console.log("======onPrepare=======")
+        // console.log("======onPrepare=======")
     },
     /**
      * Gets executed just before initialising the webdriver session and test framework. It allows you
@@ -184,7 +186,7 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
     beforeSession: function (config, capabilities, specs) {
-        console.log("======beforeSession=======")
+        // console.log("======beforeSession=======")
     },
     /**
      * Gets executed before test execution begins. At this point you can access to all global
@@ -193,7 +195,7 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
     before: function (capabilities, specs) {
-        console.log("======before=======")
+        // console.log("======before=======")
     },
     //
     /**
@@ -201,7 +203,7 @@ exports.config = {
      * @param {Object} suite suite details
      */
     beforeSuite: function (suite) {
-        console.log("======beforeSuite=======")
+        // console.log("======beforeSuite=======")
     },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
@@ -220,7 +222,7 @@ exports.config = {
      * @param {Object} test test details
      */
     beforeTest: function (test) {
-        console.log("======beforeTest=======")
+        // console.log("======beforeTest=======")
     },
     /**
      * Runs before a WebdriverIO command gets executed.
@@ -243,14 +245,14 @@ exports.config = {
      * @param {Object} test test details
      */
     afterTest: function (test) {
-        console.log("======afterTest=======")
+        // console.log("======afterTest=======")
     },
     /**
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details
      */
     afterSuite: function (suite) {
-        console.log("======afterSuite=======")
+        // console.log("======afterSuite=======")
     },
     /**
      * Gets executed after all tests are done. You still have access to all global variables from
@@ -260,7 +262,7 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that ran
      */
     after: function (result, capabilities, specs) {
-        console.log("======after=======")
+        // console.log("======after=======")
     },
     /**
      * Gets executed right after terminating the webdriver session.
@@ -269,7 +271,7 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that ran
      */
     afterSession: function (config, capabilities, specs) {
-        console.log("======afterSession=======")
+        // console.log("======afterSession=======")
     },
     /**
      * Gets executed after all workers got shut down and the process is about to exit. It is not
@@ -277,6 +279,6 @@ exports.config = {
      * @param {Object} exitCode 0 - success, 1 - fail
      */
     onComplete: function(exitCode) {
-        console.log("======onComplete=======")
+        //console.log("======onComplete=======")
     }
 }
