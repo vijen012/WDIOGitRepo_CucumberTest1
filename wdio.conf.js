@@ -1,7 +1,8 @@
-var ff;
+var ff, environment;
 var featureFilePath;
 var argv = require('yargs').argv;
 let apiLib = require('./src/utility/apiUtility').apiLib
+const apiEndPoints = require('./src/apiEndPoints/apiEndPoints')
 
 if(argv.ff != undefined){
     featureFilePath = `./src/features/API/**/${argv.ff}.feature`;
@@ -9,8 +10,12 @@ if(argv.ff != undefined){
     featureFilePath = `./src/features/API/**/*.feature`;
 }
 
-exports.config = {
+if(argv.env == 'local'){
+    environment = 'local'
+}
 
+exports.config = {
+    apiEndPoints: apiEndPoints.getEndPoints(environment),
     testDataDirPath: './src/testData/',
     ymlUtility: require('./src/utility/yamlUtility'),
     jsonUtility: require('./src/utility/jsonUtility'),
@@ -78,7 +83,7 @@ exports.config = {
     // By default WebdriverIO commands are executed in a synchronous way using
     // the wdio-sync package. If you still want to run your tests in an async way
     // e.g. using promises you can set the sync option to false.
-    sync: true,
+    sync: true, 
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
     logLevel: 'verbose',

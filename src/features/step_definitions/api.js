@@ -6,13 +6,13 @@ var myStepDefinitionsWrapper = function () {
 
     this.When(/^I make a "([^"]*)" request to "([^"]*)"$/, function (reqMethod, apiName, callback) {
         apiConfig.apiUtility.setContentType(true)
-        var apiResData = apiConfig.apiUtility.sendRequest(reqMethod, "http://localhost:4000/entitlement-service/v1/permissions");
+        let uri = apiConfig.apiEndPoints[apiName]
+        var apiResData = apiConfig.apiUtility.sendRequest(reqMethod, uri);
         apiResStatusCode = apiResData.statusCode
         apiResHeader = apiResData.headers
         apiResBody = apiResData.body
-        console.log("====StatusCode====", apiResStatusCode)
-        console.log("====Header====", apiResHeader)
-        console.log("====Body====", apiResBody)
+        console.log("===", apiResBody)
     });
 };
+
 module.exports = myStepDefinitionsWrapper;
