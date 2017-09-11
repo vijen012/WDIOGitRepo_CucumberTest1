@@ -4,10 +4,10 @@ var apiConfig = require('../../../wdio.conf').config
 var apiResBody, apiResHeader, apiResStatusCode
 var myStepDefinitionsWrapper = function () {
 
-    this.When(/^I make a "([^"]*)" request to "([^"]*)"$/, function (reqMethod, apiName, callback) {
+    this.When(/^I make a GET request to "([^"]*)"$/, function (apiName, callback) {
         apiConfig.apiUtility.setContentType(true)
         let uri = apiConfig.apiEndPoints[apiName]
-        var apiResData = apiConfig.apiUtility.sendRequest(reqMethod, uri);
+        var apiResData = apiConfig.apiUtility.sendRequest('GET', uri);
         apiResStatusCode = apiResData.statusCode
         apiResHeader = apiResData.headers
         apiResBody = apiResData.body
