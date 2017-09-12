@@ -1,8 +1,8 @@
 var ff, environment;
 var featureFilePath;
 var argv = require('yargs').argv;
-let apiLib = require('./src/utility/apiUtility').apiLib
-const apiEndPoints = require('./src/apiEndPoints/apiEndPoints')
+let apiLib = require('../functionLibraries/apiLib').apiLib
+const apiEndPoints = require('./../apiEndPoints/apiEndPoints')
 
 if(argv.ff != undefined){
     featureFilePath = `./src/features/API/**/${argv.ff}.feature`;
@@ -17,10 +17,10 @@ if(argv.env == 'local'){
 exports.config = {
     apiEndPoints: apiEndPoints.getEndPoints(environment),
     testDataDirPath: './src/testData/',
-    ymlUtility: require('./src/utility/yamlUtility'),
-    jsonUtility: require('./src/utility/jsonUtility'),
-    oracleDbUtility: require('./src/utility/oracleUtility'),
-    apiUtility: new apiLib('http', 'httpbin.org'),
+    ymlLib: require('../functionLibraries/yamlLib'),
+    jsonLib: require('../functionLibraries/jsonLib'),
+    oracleDbLib: require('../functionLibraries/oracleLib'),
+    apiLib: new apiLib('http', 'httpbin.org'),
 
     oracleDbConfig:{
         user: 'system',
@@ -151,7 +151,7 @@ exports.config = {
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-        require: ['./src/features/step_definitions'],        // <string[]> (file/dir) require files before executing features
+        require: ['./src/step_definitions'],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps

@@ -3,7 +3,7 @@
  */
 const yml = require('js-yaml')
 const fs = require('fs')
-var apiConf = require('../../wdio.conf.js')
+var apiConf = require('../conf/wdio.conf.js')
 
 var ymlData
 

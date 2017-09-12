@@ -1,8 +1,6 @@
 var chai =  require('chai');
 var expect = chai.expect;
-// var ymlUtility = require('../../utility/yamlUtility.js')
-// var jsonUtility = require('../../utility/jsonUtility.js')
-var apiConfig = require('../../../wdio.conf').config
+var apiConfig = require('../../conf/wdio.conf.js').config
 
 var num1, num2, actualValue;
 

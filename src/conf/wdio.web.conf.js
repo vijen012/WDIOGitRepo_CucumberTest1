@@ -11,10 +11,10 @@ exports.config = {
 
     testDataDirPath: './src/testData/',
 
-    ymlUtility: require('./src/utility/yamlUtility'),
-    jsonUtility: require('./src/utility/jsonUtility'),
-    uiUtility: require('./src/utility/uiUtility'),
-    oracleDbUtility: require('./src/utility/oracleUtility'),
+    ymlLib: require('../functionLibraries/yamlLib'),
+    jsonLib: require('../functionLibraries/jsonLib'),
+    oracleDbLib: require('../functionLibraries/oracleLib'),
+    uiUtility: require('../functionLibraries/uiLib'),
     
     //
     // ==================

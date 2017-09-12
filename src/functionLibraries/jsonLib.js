@@ -2,7 +2,7 @@
  * Created by vmalav on 6/12/2017.
  */
 const fs = require('fs')
-var apiConf = require('../../wdio.conf.js')
+var apiConf = require('../conf/wdio.conf.js')
 
 var jsonData
 

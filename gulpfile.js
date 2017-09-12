@@ -6,7 +6,7 @@ const Launcher = require('webdriverio/build/lib/launcher');
 const path = require('path');
 
 gulp.task('APITest', function() {
-    const wdio = new Launcher(path.join(__dirname, 'wdio.conf.js'));
+    const wdio = new Launcher(path.join(__dirname, './src/conf/wdio.conf.js'));
     return wdio.run(function(code){
         process.exit(code);
     }, function(error) {
@@ -17,7 +17,7 @@ gulp.task('APITest', function() {
 
 
 gulp.task('UITest', function() {
-    const wdio = new Launcher(path.join(__dirname, 'wdio.web.conf.js'));
+    const wdio = new Launcher(path.join(__dirname, './src/conf/wdio.web.conf.js'));
     return wdio.run(function(code){
         process.exit(code);
     }, function(error) {

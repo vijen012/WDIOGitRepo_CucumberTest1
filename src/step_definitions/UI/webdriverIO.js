@@ -3,7 +3,7 @@
  */
 var chai =  require('chai')
 var expect = chai.expect
-var uiConfig = require('../../../wdio.web.conf').config
+var uiConfig = require('../../conf/wdio.web.conf.js').config
 
 
     var myStepDefinitionsWrapper = function () {
