@@ -14,6 +14,6 @@ function getEndPoints(environment) {
         apiUrl = `${API_ENDPOINT}`
     }
 
-    endPoint['GetPermission'] = `http://${apiUrl}/entitlement-service/v1/permissions`
+    endPoint['GetUserDetails'] = `http://${apiUrl}/user-details/v1/getUserDetails`
     return endPoint
 }

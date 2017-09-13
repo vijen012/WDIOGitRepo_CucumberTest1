@@ -5,23 +5,20 @@ let await = require('asyncawait/await')
 // let async = require('asyncawait/async')
 let request = require('request')
 // let requestPromise = require('request-promise')
-// module.exports={
-//     sendRequest: sendRequest
-// }
 
 function apiLib(scheme, domain, variableChar) {
     this.domain = scheme + '://' + domain;
-    this.headers = {};
+    this.requestHeaders = {};
     this.httpResponse = {};
     this.requestBody = '';
-    this.scenarioVariables = {};
     this.queryParameters = {};
-    this.variableChar = (variableChar ? variableChar : '`');
-    this.schemaResponse = {};
+    this.httpResponseBody = '';
+    this.httpResponseHeader = '';
+    this.httpResponseStatusCode = '';
 }
 
 apiLib.prototype.setMultiRequestHeader = function(obj) {
-    this.headers = obj;
+    this.requestHeaders = obj;
     this.multiHeader = true;
 }
 
@@ -37,13 +34,37 @@ apiLib.prototype.setContentType = function(contentType){
     this.json = contentType;
 }
 
-apiLib.prototype.sendRequest = function(requestMethod, url) {
+apiLib.prototype.setHttpResponseBody = function(httpResponseBody){
+    this.httpResponseBody = httpResponseBody
+}
+
+apiLib.prototype.getHttpResponseBody = function(){
+    return this.httpResponseBody
+}
+
+apiLib.prototype.setHttpResponseHeader = function(httpResponseHeader){
+    this.httpResponseHeader = httpResponseHeader
+}
+
+apiLib.prototype.getHttpResponseHeader = function(){
+    return this.httpResponseHeader
+}
+
+apiLib.prototype.setHttpResponseStatusCode = function(httpResponseStatusCode){
+    this.httpResponseStatusCode = httpResponseStatusCode
+}
+
+apiLib.prototype.getHttpResponseStatusCode = function(){
+    return this.httpResponseStatusCode
+}
+
+apiLib.prototype.sendRequest = function(requestMethod, apiEndPointURL) {
     var options = {};
-    options.url = url;
+    options.url = apiEndPointURL;
     options.method = requestMethod;
-    options.headers = this.headers;
+    options.headers = this.requestHeaders;
     options.qs = this.queryParameters;
-    // options.body = this.requestBody;
+    options.body = this.requestBody;
     options.proxy = process.env.HTTP_PROXY;
     options.rejectUnauthorized = false;
     // options.resolveWithFullResponse = true;
@@ -56,7 +77,7 @@ apiLib.prototype.sendRequest = function(requestMethod, url) {
     if (requestMethod !== 'OPTIONS') {
         options.followRedirect = false;
     }
-    // console.log('===Method Type===', options.method, '\n===url===', url);
+    // console.log('===Method Type===', options.method, '\n===url===', options.url);
     await(function sendRequestData(callback) {
           request(options, function(error, response){
              if(error){

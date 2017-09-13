@@ -2,6 +2,7 @@ var ff, environment;
 var featureFilePath;
 var argv = require('yargs').argv;
 let apiLib = require('../functionLibraries/apiLib').apiLib
+let jsLib = require('../functionLibraries/jsLib').jsLib
 const apiEndPoints = require('./../apiEndPoints/apiEndPoints')
 
 if(argv.ff != undefined){
@@ -21,6 +22,7 @@ exports.config = {
     jsonLib: require('../functionLibraries/jsonLib'),
     oracleDbLib: require('../functionLibraries/oracleLib'),
     apiLib: new apiLib('http', 'httpbin.org'),
+    jsLib: new jsLib(),
 
     oracleDbConfig:{
         user: 'system',
