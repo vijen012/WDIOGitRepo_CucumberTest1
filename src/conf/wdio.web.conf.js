@@ -290,4 +290,30 @@ exports.config = {
      */
     // onComplete: function(exitCode) {
     // }
+
+
+    // Cucumber specific hooks
+    // beforeFeature: function (feature) {
+    //     console.log('======Cucumber-beforeFeature=======')
+    // },
+    //
+    // beforeScenario: function (scenario) {
+    //     console.log('======Cucumber-beforeScenario=======')
+    // },
+    //
+    // beforeStep: function (step) {
+    //     console.log('======Cucumber-beforeStep=======')
+    // },
+    //
+    // afterStep: function (stepResult) {
+    //     console.log('======Cucumber-afterStep=======')
+    // },
+    //
+    // afterScenario: function (scenario) {
+    //     console.log('======Cucumber-afterScenario=======')
+    // },
+    //
+    // afterFeature: function (feature) {
+    //     console.log('======Cucumber-afterFeature=======')
+    // }
 };
