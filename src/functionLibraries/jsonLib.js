@@ -3,7 +3,6 @@
  */
 const fs = require('fs')
 var apiConf = require('../conf/wdio.conf.js')
-
 var jsonData
 
 module.exports = {

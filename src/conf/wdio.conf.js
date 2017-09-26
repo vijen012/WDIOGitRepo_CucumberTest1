@@ -1,8 +1,9 @@
-var ff, environment;
+var ff, environment, executionEnv
 var featureFilePath;
 var argv = require('yargs').argv;
 let apiLib = require('../functionLibraries/apiLib').apiLib
 let jsLib = require('../functionLibraries/jsLib').jsLib
+let fwSupportLib = require('../functionLibraries/fwSupportLib').fwSupportLib
 const apiEndPoints = require('./../apiEndPoints/apiEndPoints')
 
 if(argv.ff != undefined){
@@ -16,6 +17,7 @@ if(argv.env == 'local'){
 }
 
 exports.config = {
+    executionEnv: 'local',
     apiEndPoints: apiEndPoints.getEndPoints(environment),
     testDataDirPath: './src/testData/',
     ymlLib: require('../functionLibraries/yamlLib'),
@@ -23,6 +25,7 @@ exports.config = {
     oracleDbLib: require('../functionLibraries/oracleLib'),
     apiLib: new apiLib('http', 'httpbin.org'),
     jsLib: new jsLib(),
+    fwSupportLib: new fwSupportLib(),
 
     oracleDbConfig:{
         user: 'system',

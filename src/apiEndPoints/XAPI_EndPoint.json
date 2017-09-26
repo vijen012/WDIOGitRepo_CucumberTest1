@@ -1,0 +1,5 @@
+{
+  "APIEndPoint":{
+    "XAPI_GetUserDetails": "http://{host}/user-details/v1/getUserDetails"
+  }
+}

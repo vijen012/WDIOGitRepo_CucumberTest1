@@ -1,11 +1,12 @@
-const apiConfig = require('../../conf/wdio.conf.js').config
-const apiLib = apiConfig.apiLib
+const config = require('../../conf/wdio.conf.js').config
+const apiLib = config.apiLib
 const chai =  require('chai');
 const expect = chai.expect;
 var myStepDefinitionsWrapper = function () {
 
     this.When(/^I make a GET request to "([^"]*)" endPoint$/, function (apiEndPoint, callback) {
-        let apiEndPointURL = apiConfig.apiEndPoints[apiEndPoint]
+        // let apiEndPointURL = config.apiEndPoints[apiEndPoint]
+        let apiEndPointURL = config.fwSupportLib.getEndPointURL(apiEndPoint, config.executionEnv)
         apiLib.setContentType(true)
         apiLib.setRequestBody('')
         var apiResData = apiLib.sendRequest('GET', apiEndPointURL);
@@ -24,7 +25,7 @@ var myStepDefinitionsWrapper = function () {
     });
 
     this.Then(/^I should see "([^"]*)" value "([^"]*)" in API response object$/, function (key, expectedValue, callback) {
-        expect(apiConfig.jsLib.getTransformValue(expectedValue)).to.equal(apiLib.getHttpResponseBody()[key])
+        expect(config.jsLib.getTransformValue(expectedValue)).to.equal(apiLib.getHttpResponseBody()[key])
     });
 };
 

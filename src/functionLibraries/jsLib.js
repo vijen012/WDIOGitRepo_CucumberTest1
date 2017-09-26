@@ -3,7 +3,7 @@
  */
 
 function jsLib(){
-
+//jsLib constructor
 }
 
 jsLib.prototype.getTransformValue = function (inputString) {
@@ -13,4 +13,4 @@ jsLib.prototype.getTransformValue = function (inputString) {
 jsLib.prototype.isNumeric = function (inputString) {
     return !isNaN(inputString) ? true : false
 }
-exports.jsLib = jsLib;
+exports.jsLib = jsLib

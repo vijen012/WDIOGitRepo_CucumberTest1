@@ -1,0 +1,7 @@
+{
+  "EnvironmentURL": {
+    "local": "localhost:4000",
+    "dev": "localhost:5000",
+    "qa": "localhost:6000"
+  }
+}
